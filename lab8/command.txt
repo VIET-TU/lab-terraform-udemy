@@ -1,0 +1,29 @@
+#Require: re-use keypair from lab2
+#NOTE: PLEASE USE SINGAPORE REGION!!!!
+
+#Reference: Terraform Excercise No4 from CloudAcademy:
+https://github.com/cloudacademy/terraform-aws
+
+#Commands Terraform:
+terraform init
+terraform plan --var-file "terraform.tfvars"
+terraform apply --var-file "terraform.tfvars"
+terraform destroy --var-file "terraform.tfvars"
+
+
+
+Thuộc tính drop_invalid_header_fields trong cấu hình của một Application Load Balancer (ALB) trên AWS là một tùy chọn mà bạn có thể cấu hình để xác định cách xử lý của load balancer đối với các HTTP header có chứa các trường không hợp lệ. Elastic Load Balancing (ELB) yêu cầu các tên của message header phải chỉ chứa các ký tự chữ và số và dấu gạch ngang.
+
+Định nghĩa và Cách hoạt động:
+drop_invalid_header_fields: Tùy chọn này cho phép bạn chỉ định liệu load balancer có nên loại bỏ các HTTP header có chứa các trường header không hợp lệ khi tiến hành gửi yêu cầu tới các máy chủ đích hay không.
+true: Nếu thiết lập là true, khi load balancer nhận một yêu cầu có chứa header với các trường không hợp lệ (không phù hợp với quy tắc chỉ chấp nhận ký tự chữ và số và dấu gạch ngang), nó sẽ tự động loại bỏ các trường header đó trước khi chuyển yêu cầu đến máy chủ đích.
+
+Thuộc tính enable_cross_zone_load_balancing trong cấu hình của một Load Balancer trên AWS có chức năng kiểm soát liệu việc cân bằng tải giữa các Availability Zones (AZ) có được kích hoạt hay không. Cross-zone load balancing là một tính năng quan trọng cho phép lưu lượng được phân bổ một cách đều đặn giữa tất cả các máy chủ (hoặc instances) thuộc load balancer mà không phân biệt các máy chủ đó nằm trong AZ nào.
+
+Chi tiết về enable_cross_zone_load_balancing:
+Cách hoạt động của Cross-Zone Load Balancing:
+Khi không có cross-zone load balancing, mỗi load balancer chỉ cân bằng tải trong phạm vi AZ của nó. Điều này có nghĩa là mỗi load balancer chỉ chuyển lưu lượng tới các máy chủ nằm trong cùng một AZ với nó.
+Khi kích hoạt cross-zone load balancing, load balancer có khả năng chuyển lưu lượng đến bất kỳ máy chủ nào trong số các máy chủ được đính kèm, bất kể AZ nào chúng đang thuộc về. Điều này giúp cân bằng lưu lượng một cách đều khắp các AZ, giảm thiểu vấn đề lưu lượng quá tải trên một AZ trong khi các AZ khác vẫn còn dư capacity.
+
+
+(priority Tùy chọn) Mức độ ưu tiên cho quy tắc từ 1 đến 50000. Việc không đặt quy tắc này sẽ tự động đặt quy tắc với mức độ ưu tiên có sẵn tiếp theo sau quy tắc cao nhất hiện có. Người nghe không thể có nhiều quy tắc có cùng mức độ ưu tiên.

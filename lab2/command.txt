@@ -1,0 +1,18 @@
+aws configure
+aws sts get-caller-identity
+aws sts get-session-token --serial-number     arn:aws:iam::287925497349:mfa/developer-01-oppo --token-code 944987
+
+#Generate keypair using ssh
+ssh-keygen -t rsa -b 4096 -C "ll6012065@gmail.com"
+
+#mkdir ./keypair
+#Enter path for new key: example ./keypair/udemy-key
+
+#Terraform EC2 Instance definition syntax:
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+
+#Command Terraform:
+terraform init
+terraform plan
+terraform apply
+terraform destroy
